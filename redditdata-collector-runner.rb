@@ -45,6 +45,12 @@ def run_session
     collect_dataset('links', collector_directory, temp_location, log_directory + timestamp + '_' + 'links' + '.log', regex)
     collect_dataset('users', collector_directory, temp_location, log_directory + timestamp + '_' + 'users' + '.log', regex)
     collect_dataset('userlinks', collector_directory, temp_location, log_directory + timestamp + '_' + 'userlinks' + '.log', regex)
+
+    Util.log "Copying #{temp_location} to #{static_location}"
+    FileUtils.copy temp_location, static_location
+
+    Util.log "Copying #{temp_location} to #{temp_location.sub('.temp', '')}"
+    FileUtils.copy temp_location, temp_location.sub('.temp', '')
   rescue StandardError => error
     Util.log 'Session has failed'
     Util.log error.message
