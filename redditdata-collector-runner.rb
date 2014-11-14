@@ -51,6 +51,9 @@ def run_session
 
     Util.log "Copying #{temp_location} to #{temp_location.sub('.temp', '')}"
     FileUtils.copy temp_location, temp_location.sub('.temp', '')
+
+    Util.log "Removing #{temp_location}"
+    FileUtils.rm temp_location
   rescue StandardError => error
     Util.log 'Session has failed'
     Util.log error.message
