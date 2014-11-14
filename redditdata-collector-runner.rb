@@ -71,9 +71,9 @@ def run_session
 
   begin
     collect_dataset('subreddits', collector_directory, temp_location, log_directory + timestamp + '_' + 'subreddits' + '.log', regex, mode)
-    #collect_dataset('links', collector_directory, temp_location, log_directory + timestamp + '_' + 'links' + '.log', regex, mode)
-    #collect_dataset('users', collector_directory, temp_location, log_directory + timestamp + '_' + 'users' + '.log', regex, mode)
-    #collect_dataset('userlinks', collector_directory, temp_location, log_directory + timestamp + '_' + 'userlinks' + '.log', regex, mode)
+    collect_dataset('links', collector_directory, temp_location, log_directory + timestamp + '_' + 'links' + '.log', regex, mode)
+    collect_dataset('users', collector_directory, temp_location, log_directory + timestamp + '_' + 'users' + '.log', regex, mode)
+    collect_dataset('userlinks', collector_directory, temp_location, log_directory + timestamp + '_' + 'userlinks' + '.log', regex, mode)
 
     Util.log "Copying #{temp_location} to #{static_location}"
     FileUtils.copy temp_location, static_location
