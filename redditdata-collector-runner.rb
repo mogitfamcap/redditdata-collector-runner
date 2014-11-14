@@ -1,4 +1,5 @@
 require 'parseconfig'
+require 'fileutils'
 
 require './util.rb'
 
