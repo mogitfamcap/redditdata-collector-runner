@@ -23,7 +23,7 @@ end
 
 
 def collect_dataset(dataset, collector_directory, database_location, logfile, regex, mode)
-  command = "ruby #{collector_directory}bin/redditdata-collector #{database_location} #{dataset} #{mode} '#{regex}' >> #{logfile} 2>&1"
+  command = "ruby #{collector_directory}bin/redditdata-collector collect #{database_location} #{dataset} #{mode} '#{regex}' >> #{logfile} 2>&1"
   Util.log "Running command: #{command}"
   exit_code = system(command)
   Util.log "Exit code: #{exit_code}"
